@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Project</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Project</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="project">
+            <h1 data-aos="fade-up">Cooling the Future, Protecting Our Planet 🌍</h1>
+            <p data-aos="fade-up" data-aos-delay="200">
+                Have you ever wondered about the reasons behind the recent rise in temperatures? Several factors contribute to this phenomenon; however, one significant factor is the refrigerator in use. Indeed, refrigerators rely on refrigerants, which can be detrimental to the environment due to their capacity to deplete the ozone layer and exacerbate global warming. Certain refrigerants, including CFCs and HCFCs, harm the ozone layer, whereas others, such as HFCs, are recognized as potent greenhouse gases. These gases contribute to the trapping of heat within the atmosphere, thereby facilitating climate change.
+            </p>
+            <h2 data-aos="fade-right" data-aos-delay="300">How to fix this problem?</h2>
+            <p data-aos="fade-right" data-aos-delay="400">
+                We have identified an effective solution to this matter. A compact refrigerator has been developed that does not emit CFCs, thereby making it suitable for outdoor activities such as picnics. A team of five members executed this project. For further information regarding our team, kindly visit the team page.
+            </p>
+            <div class="calculator-container" data-aos="fade-up">
+                <h2>Calculate the Impact</h2>
+                <p>Use the slider below to see how much energy and CO₂ you could save each year with our fridge.</p>
+  
+                <div class="calculator-controls">
+                    <label for="hours-slider">Hours of Use Per Day: <span id="hours-value">8</span></label>
+                    <input type="range" id="hours-slider" min="1" max="24" value="8">
+                </div>
+  
+                <div class="summary-cards">
+                    <div class="card">
+                    <h4>Energy Saved</h4>
+                    <p><span id="kwh-saved">0</span> kWh/year</p>
+                </div>
+                <div class="card">
+                    <h4>CO₂ Prevented</h4>
+                   <p><span id="co2-saved">0</span> kg/year</p>
+               </div>
+            </div>
+  
+  <div class="chart-container">
+    <canvas id="impact-chart"></canvas>
+  </div>
+</div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="calculator.js"></script>
+</body>
+</html>

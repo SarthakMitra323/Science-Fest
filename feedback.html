@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Project</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="feedback">
+            <h1 data-aos="fade-down">We'd Love to Hear From You 💬</h1>
+            <form id="feedback-form">
+                <input type="text" id="name" placeholder="Your Name" required data-aos="fade-right" data-aos-delay="200">
+                <input type="email" id="email" placeholder="Your Email" required data-aos="fade-left" data-aos-delay="300">
+                <textarea id="message" placeholder="Your Feedback" required data-aos="fade-up" data-aos-delay="400"></textarea>
+                <button type="submit" data-aos="fade-up" data-aos-delay="500">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <!-- Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Project</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="team">
+            <h1 data-aos="fade-down">Meet the Innovators 🚀</h1>
+            <div class="team-members">
+                <!-- Team Member Card 1 -->
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="Sarthak.jpg" alt="Sarthak Mitra">
+                    <h3>Sarthak Mitra</h3>
+                    <h4>Project Lead</h4>
+                    <p>Our team's visionary leader, Sarthak, was the driving force behind the project's concept. He managed the overall timeline and ensured every member was aligned with our shared goal of sustainability. He also created this website.</p>
+                </div>
+                <!-- Team Member Card 2 -->
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="Aishik.jpg" alt="Aishik Mitra">
+                    <h3>Aishik Mitra</h3>
+                    <h4>Lead Engineer</h4>
+                    <p>Aishik took charge of the technical design and assembly. His expertise in thermodynamics was crucial for developing our CFC-free cooling mechanism, making our mini-fridge both effective and eco-friendly.</p>
+                </div>
+                <!-- Team Member Card 3 -->
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="Aihan.jpg" alt="Aihan Dasgupta">
+                    <h3>Aihan Dasgupta</h3>
+                    <h4>Lead Researcher</h4>
+                    <p>As the head of research, Aihan explored various eco-friendly materials and refrigerants. His meticulous work ensured that every component of our mini-fridge met the highest standards of environmental safety.</p>
+                </div>
+                <!-- Team Member Card 4 -->
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="Aryabir.jpg" alt="Aryabir Bhattacharya">
+                    <h3>Aryabir Bhattacharya</h3>
+                    <h4>Software & Controls</h4>
+                    <p>Aryabir was responsible for the software and control systems. He programmed the unit for maximum energy efficiency, allowing it to provide optimal cooling with minimal power consumption for outdoor use.</p>
+                </div>
+                <!-- Team Member Card 5 -->
+                <div class="team-member" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="Soumav.jpg" alt="Soumav Aich">
+                    <h3>Soumav Aich</h3>
+                    <h4>UI & Product Design</h4>
+                    <p>Soumav handled the user interface and aesthetic design. He ensured the mini-fridge was not only functional but also portable, durable, and visually appealing for activities like picnics and camping trips.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript for Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+    
+    <!-- JavaScript for 3D Tilt Effect -->
+    <script>
+      document.querySelectorAll('.team-member').forEach(card => {
+        // This event fires ONCE when the mouse enters the card's space
+        card.addEventListener('mouseenter', () => {
+          // Turn off the transition to allow for instant tracking
+          card.style.transition = 'none';
+        });
+
+        // This event fires continuously as the mouse moves over the card
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          const rotateY = x / 20; // Adjust divisor for sensitivity
+          const rotateX = -y / 20;
+          
+          // The transform is now applied instantly without a transition delay
+          card.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`;
+        });
+
+        // This event fires ONCE when the mouse leaves the card's space
+        card.addEventListener('mouseleave', () => {
+          // Re-enable the transition for a smooth reset animation
+          card.style.transition = 'transform 0.5s ease';
+          
+          // Reset the card to its original position
+          card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
+        });
+      });
+    </script>
+</body>
+</html>

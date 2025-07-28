@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Universal Box Sizing Rule */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(300deg, #001220, #083344, #000c14);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background-color: rgba(12, 27, 40, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00aaff;
+    transition: width 0.4s ease-out;
+}
+
+nav a:hover {
+    color: #00aaff;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+main {
+    padding: 60px 40px;
+    overflow-x: hidden;
+}
+
+.project, .team, .feedback {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.project h1, .team h1, .feedback h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.project p, .team p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #b0c4de;
+}
+
+.project h2 {
+    font-size: 2rem;
+    margin-top: 40px;
+    color: #00aaff;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background-color: rgba(20, 39, 53, 0.8);
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    will-change: transform, box-shadow;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.5);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #00aaff;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 15px;
+    border: 1px solid #2a3b4a;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #081c28;
+    color: #E0E0E0;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #00aaff;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+button {
+    background-color: #00aaff;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0088cc;
+    transform: scale(1.05);
+}
+/* --- Interactive Calculator Styles --- */
+.calculator-container {
+    background-color: rgba(20, 39, 53, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 60px;
+    border: 1px solid rgba(0, 170, 255, 0.2);
+}
+
+.calculator-container h2 {
+    margin-top: 0;
+}
+
+.calculator-controls {
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+.calculator-controls label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#hours-slider {
+    width: 100%;
+    cursor: pointer;
+}
+
+.chart-container {
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+}
+/* --- Summary Card Styles --- */
+.summary-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: rgba(8, 28, 40, 0.8);
+    border-radius: 10px;
+    padding: 15px 25px;
+    text-align: center;
+    border: 1px solid rgba(0, 170, 255, 0.3);
+    min-width: 200px;
+}
+
+.card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #b0c4de;
+    font-weight: 500;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00aaff;
+}
+
+/* Ensure chart container has a defined height */
+.chart-container {
+    position: relative;
+    height: 400px; /* Give the chart a fixed height */
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+}
