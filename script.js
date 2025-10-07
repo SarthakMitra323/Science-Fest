@@ -1,19 +1,17 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCVCxeldlGIaafXvtX4S86SioaSWvCW-sk",
-  authDomain: "science-fest-c5913.firebaseapp.com",
-  databaseURL: "https://science-fest-c5913-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "science-fest-c5913",
-  storageBucket: "science-fest-c5913.firebasestorage.app",
-  messagingSenderId: "694899856907",
-  appId: "1:694899856907:web:df37dc712bc6ae1fb7990e",
-  measurementId: "G-C7RQJJBTKS"
-};
-
+    apiKey: "AIzaSyD-JoW5Q0GTlm8taQUet6E5DcPU6EUejSg",
+    authDomain: "science-fest-feedback-storage.firebaseapp.com",
+    projectId: "science-fest-feedback-storage",
+    storageBucket: "science-fest-feedback-storage.firebasestorage.app",
+    messagingSenderId: "953304023023",
+    appId: "1:953304023023:web:cbe5314ea19f68fbdf401a",
+    measurementId: "G-MHZ0FG4S1J"
+  };
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
+
+// Initialize Firestore
+const db = firebase.firestore();
 
 const feedbackForm = document.getElementById('feedback-form');
 
@@ -27,15 +25,21 @@ feedbackForm.addEventListener('submit', (e) => {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-    // Push the collected data to the 'feedback' node in your database
-    database.ref('feedback').push({
+    // Add the collected data to the 'feedback' collection in Firestore
+    db.collection('feedback').add({
         name: name,
         email: email,
         message: message,
-        submittedAt: new Date().toISOString() // Optional: add a timestamp
+        submittedAt: firebase.firestore.FieldValue.serverTimestamp() // Use server timestamp
+    })
+    .then((docRef) => {
+        console.log('Document written with ID: ', docRef.id);
+        // Notify the user and reset the form
+        alert('Thank you for your feedback!');
+        feedbackForm.reset();
+    })
+    .catch((error) => {
+        console.error('Error adding document: ', error);
+        alert('Sorry, there was an error submitting your feedback. Please try again.');
     });
-
-    // Notify the user and reset the form
-    alert('Thank you for your feedback!');
-    feedbackForm.reset();
 });
