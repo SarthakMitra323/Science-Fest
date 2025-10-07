@@ -179,6 +179,49 @@ button:hover {
     background-color: #0088cc;
     transform: scale(1.05);
 }
+
+/* --- Schematic Section Styles --- */
+.schematic-section {
+    background-color: rgba(20, 39, 53, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.schematic-section h2 {
+    margin-top: 0;
+    color: #00aaff;
+    font-size: 2rem;
+}
+
+.schematic-section p {
+    color: #b0c4de;
+    margin-bottom: 25px;
+}
+
+.schematic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schematic-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 170, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 170, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.schematic-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 170, 255, 0.4);
+}
+
 /* --- Interactive Calculator Styles --- */
 .calculator-container {
     background-color: rgba(20, 39, 53, 0.8);
